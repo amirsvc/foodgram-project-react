@@ -1,13 +1,10 @@
 import base64
 from django.core.files.base import ContentFile
-from django.shortcuts import get_object_or_404
-from djoser.serializers import UserCreateSerializer, UserSerializer
-from rest_framework import serializers, status
-from rest_framework.exceptions import ValidationError
+from djoser.serializers import UserSerializer
+from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
 
 from recipes.models import (
-    Favorite,
     Ingredient,
     IngredientOfRecipe,
     Recipe,
