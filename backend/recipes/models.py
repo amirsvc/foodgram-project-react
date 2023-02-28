@@ -1,6 +1,12 @@
+from colorfield.fields import ColorField
 from django.core.validators import MinValueValidator, RegexValidator
 from django.db import models
 from users.models import User
+
+slag_validator = RegexValidator(
+    regex=r'^[-a-zA-Z0-9_]+$',
+    message='Должны быть только цифры и буквы'
+)
 
 
 class Tag(models.Model):
@@ -8,21 +14,15 @@ class Tag(models.Model):
         'Имя тега',
         max_length=200,
     )
-
-    color = models.CharField(
-        'HEX - цвет',
-        max_length=7,
+    color = ColorField(
+        'Цвет',
+        default='#FF0000',
     )
     slug = models.CharField(
         'Слаг',
         max_length=200,
         unique=True,
-        validators=(
-            RegexValidator(
-                regex=r'^[-a-zA-Z0-9_]+$',
-                message='Должны быть только цифры и буквы'
-            ),
-        )
+        validators=[slag_validator],
     )
 
     class Meta:
@@ -40,7 +40,7 @@ class Ingredient(models.Model):
     class Meta:
         verbose_name = 'Ингредиент'
         verbose_name_plural = 'Ингредиенты'
-        ordering = ['name']
+        ordering = ('name',)
 
     def __str__(self):
         return f'{self.name}, {self.measurement_unit}'
@@ -81,7 +81,7 @@ class Recipe(models.Model):
     class Meta:
         verbose_name = 'Рецепт'
         verbose_name_plural = 'Рецепты'
-        ordering = ['-id']
+        ordering = ('-id',)
 
     def __str__(self):
         return self.name
