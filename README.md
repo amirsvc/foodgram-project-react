@@ -4,6 +4,17 @@
 
 Язык программирования: Python 3.9
 
+Размещен в инете по адресу http://amirsvc.sytes.net/ (http://51.250.71.194/)
+
+админские данные:
+админка http://amirsvc.sytes.net/admin
+почта:admin@ad.com
+пароль: foodgramadmin
+
+данные пользвоателя:
+почта: user@us.us
+пароль: foodgramuser
+
 Используемые библиотеки и пакеты перечислены в файле requirements из папки backend
 
 ## **Описание:**
@@ -25,7 +36,7 @@ cd infra
 ```
 
 Создать файл .env, где харнятся секреты.
-Пример pаполнения:
+Пример наполнения:
 ```
 SECRET_KEY=bovh!l-bg8y_ltn&797yh66^&8adw&z1xoyj+$mie7=j(^#jr1
 ALLOWED_HOSTS=example.org
@@ -43,11 +54,11 @@ docker-compose up -d --build
 ```
 Выполнить миграции:
 ```
-docker-compose exec web python manage.py migrate
+docker-compose exec Django python manage.py migrate
 ```
 Собрать статику:
 ```
-docker-compose exec web python manage.py collectstatic --no-input
+docker-compose exec Django python manage.py collectstatic --no-input
 ```
 Загрузить в БД ингредиенты и теги:
 ```
