@@ -4,17 +4,6 @@
 
 Язык программирования: Python 3.9
 
-Размещен в инете по адресу http://amirsvc.sytes.net/ (http://51.250.71.194/)
-
-админские данные:
-админка http://amirsvc.sytes.net/admin
-почта:admin@ad.com
-пароль: foodgramadmin
-
-данные пользвоателя:
-почта: user@us.us
-пароль: foodgramuser
-
 Используемые библиотеки и пакеты перечислены в файле requirements из папки backend
 
 ## **Описание:**
